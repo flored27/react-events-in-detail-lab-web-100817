@@ -5,10 +5,24 @@ import ReactDOM from 'react-dom';
 import CoordinatesButton from './components/CoordinatesButton';
 import DelayedButton from './components/DelayedButton';
 
+let onReceiveCoordinates = (arr) => {
+  console.log(arr);
+  return arr;
+};
+
+let onDelayedClick = () => {
+  console.log("delayed Click!")
+};
+
 ReactDOM.render(
   <div>
-    <CoordinatesButton />
-    <DelayedButton />
+    <CoordinatesButton
+    onReceiveCoordinates = {onReceiveCoordinates}
+    />
+    <DelayedButton
+    onDelayedClick ={onDelayedClick}
+    delay={5000}
+    />
   </div>,
   document.getElementById('global')
 );
